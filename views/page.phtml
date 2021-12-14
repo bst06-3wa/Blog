@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $page ?></title>
+</head>
+<body>
+    <!-- HEADER -->
+    <?php require_once "components/header.phtml"; ?>
+    <!-- MAIN -->
+    <main>
+        <?php require_once "components/$page.phtml"; ?>
+    </main>
+    <!-- FOOTER -->
+    <?php require_once "components/footer.phtml"; ?>
+</body>
+</html>
