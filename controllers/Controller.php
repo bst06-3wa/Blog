@@ -1,12 +1,10 @@
 <?php
     namespace Controllers;
 
-    class Controller
+    abstract class Controller
     {
         protected $view;
         protected $model;
-        protected $scripts;
-        protected $styles;
         function __construct(array $data = [])
         {
            

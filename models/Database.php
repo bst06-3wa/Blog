@@ -1,7 +1,7 @@
 <?php
     namespace Models;
 
-    class Database
+    abstract class Database
     {
         function __construct()
         {
