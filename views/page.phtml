@@ -8,12 +8,12 @@
 </head>
 <body>
     <!-- HEADER -->
-    <?php require_once "components/header.phtml"; ?>
+    <?php require_once VIEW_DIR."/components/header.phtml"; ?>
     <!-- MAIN -->
     <main>
-        <?php require_once "components/".$data["view"].".phtml"; ?>
+        <?php require_once VIEW_DIR."/components/".$data["view"].".phtml"; ?>
     </main>
     <!-- FOOTER -->
-    <?php require_once "components/footer.phtml"; ?>
+    <?php require_once VIEW_DIR."/components/footer.phtml"; ?>
 </body>
 </html>

@@ -4,7 +4,7 @@
     abstract class Controller
     {
         protected string $view;
-        protected object $model;
+        protected $model;
     
         function __construct(array $data = [])
         {
@@ -21,7 +21,7 @@
         }
         public function display(array $data = []):bool
         {
-        
+            $data['view'] = $this->view;
             $datas = !empty($data) ? $data : [];
             require_once VIEW_DIR . "/page.phtml";
             return true;

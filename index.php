@@ -1,24 +1,28 @@
 <?php
-    // Dépandance
+//   var_dump($_GET);
+    require_once("config/config.php");
     use Controllers\HomeController;
     spl_autoload_register(function($class){
         $path = lcfirst(str_replace("\\","/",$class));
-        require_once $class.".php";   
+        require_once $path.".php";
     });
+
     $page = [
-        "name" => $GET["path"],
-        "model" => ""
+        "name"=> $_GET['path'],
+        "model"=> ""
     ];
-    // ROUTER
-    if(isset($GET["path"]))
-    {
-        
-        switch($GET["path"]){
-            case "home":
-                
-            $controller = new HomeController($page);
-            $controller->display();
-            break;
+
+
+    if(isset($_GET['path'])){
+        switch($_GET['path']){
+                case "home":
+                    $controller = new HomeController($page);
+                    $controller->display();
+                break;
+                case "test":
+                    $controller = new HomeController($page);
+                    $controller->display();
+                break;
         }
     }else{
         header("Location: ./?path=home");
