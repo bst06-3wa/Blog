@@ -3,8 +3,9 @@
 
     abstract class Controller
     {
-        protected $view;
-        protected $model;
+        protected string $view;
+        protected object $model;
+    
         function __construct(array $data = [])
         {
            
@@ -20,7 +21,7 @@
         }
         public function display(array $data = []):bool
         {
-            $view = 'home';
+        
             $datas = !empty($data) ? $data : [];
             require_once VIEW_DIR . "/page.phtml";
             return true;
