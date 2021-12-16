@@ -6,27 +6,42 @@
             <strong class="brigade">Brigade des fans de voiture</strong>
         </div>
 
-        <div class="rightSideHeader">
-            <!-- <img src="Image utilisateur quand connecté" alt="Your User Image"> -->
-            <p class="greetUser">Bonjour, David !</p>  
-            <ul class="menuUser">
-                <li class="deroulant">
-                    <i class="fas fa-arrow-right arrow" id="arrow"> Menu</i>
-                    <ul class="sous">
-                        <li><a href="./logout" class="logout">Déconnection</a></li>
-                        <li><a href="./settings" class="settings">Paramètres</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="./blog"></a></li>
-                <li><a href="./login"></a></li>
-                <li><a href="./register"></a></li>
-            </ul>
-        </nav>
+        <?php if (isset($_SESSION["firstname"])): ?>
+            <div class="rightSideHeader">
+                <!-- <img src="Image utilisateur quand connecté" alt="Your User Image"> -->
+                <p class="greetUser">Bonjour, David !</p>  
+                <ul class="menuUser">
+                    <li class="deroulant">
+                        <i class="fas fa-arrow-right arrow" id="arrow"> Menu</i>
+                        <ul class="sous">
+                            <li><a href="./logout" class="logout">Déconnection</a></li>
+                            <li><a href="./settings" class="settings">Paramètres</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        <?php else: ?>
+            <div class="rightSideHeader ">
+                <!-- <img src="Image utilisateur quand connecté" alt="Your User Image"> -->
+                <p class="greetUser">Bonjour, David !</p>  
+                <ul class="menuUser">
+                    <li class="deroulant">
+                        <i class="fas fa-arrow-right arrow" id="arrow"> Menu</i>
+                        <ul class="sous">
+                            <li><a href="./logout" class="logout">Déconnection</a></li>
+                            <li><a href="./settings" class="settings">Paramètres</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        <?php endif; ?>
 
     </div>
+    <nav>
+        <ul>
+            <li><a href="./blog">Home</a></li>
+            <li><a href="./register">S'inscrire</a></li>
+            <li><a href="./login">Se connecter</a></li>
+        </ul>
+    </nav>
 </header>

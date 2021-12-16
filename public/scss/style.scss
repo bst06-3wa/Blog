@@ -1,15 +1,15 @@
 @import "_config.scss";
 
-/* *************** HEADER ************** */
+/* ************** HEADER ************* */
 
 .wholeHeader {
     display: flex;
     justify-content: space-between;
-    background-color: $bgHeader;
+    background-color: $bgHeaderFooter;
 
     .leftSideHeader{
     
-        width: 40%;
+        width: 26%;
         display: flex;
         align-items: center;
 
@@ -43,12 +43,12 @@
 
                     .logout{
                         text-decoration: none;
-                        color: black;
+                        color: $href;
                     }
 
                     .settings{
                         text-decoration: none;
-                        color: black;
+                        color: $href;
                     }
 
                 }
@@ -76,12 +76,41 @@
             margin: 2em;
         }
     }
+
+    .hidden{
+        display: none;
+    }
+
+}
+nav{
+    background-color: $bgHeaderFooter;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+
+        li{
+            a{
+                text-decoration: none;
+                padding: 1.5em;
+                color: $href;
+                display: block;
+
+            }
+        }
+    }
 }
 
 
 
 /* *************** MAIN ************** */
 
-.wholeMain {
-    background-color: $bgMain;
+
+
+
+/* ************** FOOTER ************* */
+
+footer{
+    background-color: $bgHeaderFooter;
+    text-align: center;
 }

@@ -1,4 +1,4 @@
-/* *************** HEADER ************** */
+/* ************** HEADER ************* */
 .wholeHeader {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10,7 +10,7 @@
 }
 
 .wholeHeader .leftSideHeader {
-  width: 40%;
+  width: 26%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,8 +79,33 @@
   margin: 2em;
 }
 
+.wholeHeader .hidden {
+  display: none;
+}
+
+nav {
+  background-color: #bebebe;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 1.5em;
+  color: black;
+  display: block;
+}
+
 /* *************** MAIN ************** */
-.wholeMain {
-  background-color: #282828;
+/* ************** FOOTER ************* */
+footer {
+  background-color: #bebebe;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
