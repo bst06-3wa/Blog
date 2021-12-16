@@ -1,0 +1,111 @@
+/* ************** HEADER ************* */
+.wholeHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #bebebe;
+}
+
+.wholeHeader .leftSideHeader {
+  width: 26%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wholeHeader .leftSideHeader .imgLogo {
+  width: 40%;
+  height: 100%;
+}
+
+.wholeHeader .leftSideHeader .brigade {
+  display: block;
+}
+
+.wholeHeader .rightSideHeader .menuUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wholeHeader .rightSideHeader .menuUser .deroulant {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+
+.wholeHeader .rightSideHeader .menuUser .deroulant .sous {
+  display: none;
+  -webkit-box-shadow: 0px 1px 2px #bebebe;
+          box-shadow: 0px 1px 2px #bebebe;
+  background-color: #bebebe;
+  text-align: center;
+}
+
+.wholeHeader .rightSideHeader .menuUser .deroulant .sous .logout {
+  text-decoration: none;
+  color: black;
+}
+
+.wholeHeader .rightSideHeader .menuUser .deroulant .sous .settings {
+  text-decoration: none;
+  color: black;
+}
+
+.wholeHeader .rightSideHeader .menuUser .deroulant:hover .sous {
+  display: block;
+}
+
+.wholeHeader .rightSideHeader .menuUser .fa-arrow-right {
+  content: "\f063";
+}
+
+.wholeHeader .rightSideHeader .menuUser::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wholeHeader .rightSideHeader .greetUser {
+  margin: 2em;
+}
+
+.wholeHeader .hidden {
+  display: none;
+}
+
+nav {
+  background-color: #bebebe;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 1.5em;
+  color: black;
+  display: block;
+}
+
+/* *************** MAIN ************** */
+/* ************** FOOTER ************* */
+footer {
+  background-color: #bebebe;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */

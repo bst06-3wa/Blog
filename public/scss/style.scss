@@ -1,1 +1,116 @@
 @import "_config.scss";
+
+/* ************** HEADER ************* */
+
+.wholeHeader {
+    display: flex;
+    justify-content: space-between;
+    background-color: $bgHeaderFooter;
+
+    .leftSideHeader{
+    
+        width: 26%;
+        display: flex;
+        align-items: center;
+
+        .imgLogo{
+            width: 40%;
+            height: 100%
+        }
+
+        .brigade{
+            display: block;
+        }
+    }
+
+    .rightSideHeader{
+
+        .menuUser{
+
+            display: flex;
+            justify-content: center;
+
+            .deroulant{
+                float: left;
+                width: 25%;
+                text-align: center;
+
+                .sous{
+                    display: none;
+                    box-shadow: 0px 1px 2px $bgcolorMenuDeroulant;
+                    background-color: $bgcolorMenuDeroulant;
+                    text-align: center;
+
+                    .logout{
+                        text-decoration: none;
+                        color: $href;
+                    }
+
+                    .settings{
+                        text-decoration: none;
+                        color: $href;
+                    }
+
+                }
+            }
+
+            .deroulant:hover .sous{
+                display: block;
+            }
+
+            .fa-arrow-right{
+                content: "\f063";
+            }
+
+            
+        }
+
+
+        .menuUser::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .greetUser{
+            margin: 2em;
+        }
+    }
+
+    .hidden{
+        display: none;
+    }
+
+}
+nav{
+    background-color: $bgHeaderFooter;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+
+        li{
+            a{
+                text-decoration: none;
+                padding: 1.5em;
+                color: $href;
+                display: block;
+
+            }
+        }
+    }
+}
+
+
+
+/* *************** MAIN ************** */
+
+
+
+
+/* ************** FOOTER ************* */
+
+footer{
+    background-color: $bgHeaderFooter;
+    text-align: center;
+}
