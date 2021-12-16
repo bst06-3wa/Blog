@@ -9,13 +9,12 @@
 
     .leftSideHeader{
     
-        width: 26%;
+        flex-basis: 30%;
         display: flex;
         align-items: center;
 
         .imgLogo{
-            width: 40%;
-            height: 100%
+            width: 70%;
         }
 
         .brigade{
