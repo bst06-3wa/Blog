@@ -8,6 +8,14 @@
             $this->bdd->query($sql);
         }
 
-        
+        function updateUser($firstname, $lastname, $email, $password, $id) {
+            $sql = "UPDATE users SET firstname='[$firstname]',lastname='[$lastname]',email='[$email]',password='[$password]' WHERE id_user = $id";
+            $this->bdd->query($sql);
+        }
+
+        function deleteUser($id) {
+            $sql = "DELETE FROM users WHERE id_user = $id";
+            $this->bdd->query($sql);
+        }
         
     }

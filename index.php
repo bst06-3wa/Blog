@@ -16,10 +16,8 @@
     if(isset($_GET['path'])){
         switch($_GET['path']){
                 case "home":
-                    $page['model'] = new Models\UserModel();
                     $controller = new HomeController($page);
                     $controller->display();
-                    $controller->update();
                 break;
                 case "test":
                     $controller = new HomeController($page);
