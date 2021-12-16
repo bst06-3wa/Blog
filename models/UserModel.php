@@ -7,4 +7,6 @@
             $sql = "INSERT INTO `users`(`firstname`, `lastname`, `email`, `password`) VALUES ('$firstname','$lastname', '$email','$password')";
             $this->bdd->query($sql);
         }
+
+        
     }
