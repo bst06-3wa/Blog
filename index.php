@@ -25,5 +25,5 @@
                 break;
         }
     }else{
-        header("Location: ./?path=home");
+        header("Location: ./home");
     }
