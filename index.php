@@ -19,11 +19,23 @@
                     $controller = new HomeController($page);
                     $controller->display();
                 break;
-                case "test":
+                case "register":
+                    $controller = new HomeController($page);
+                    $controller->display();
+                break;
+                case "login":
+                    $controller = new HomeController($page);
+                    $controller->display();
+                break;
+                case "logout":
+                    $controller = new HomeController($page);
+                    $controller->display();
+                break;
+                case "profile":
                     $controller = new HomeController($page);
                     $controller->display();
                 break;
         }
     }else{
-        header("Location: ./?path=home");
+        header("Location: ./home");
     }

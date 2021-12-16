@@ -13,12 +13,12 @@
 -> Tables:
     -> users : id - firstname - lastname - role - email - password 
     -> users_articles : id_user - id_article
-    -> articles : id - title - content - author - created_at
+    -> articles : id - title - content - author - created_at - status
+    -> comments : content - id_user
 
 -création du model User:
 ->méthods:
     -insertUser;
-    -connectUser;
     -updateUser;
     -deleteUser;
     -selectAllUsers;
