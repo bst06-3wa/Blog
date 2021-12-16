@@ -16,8 +16,10 @@
     if(isset($_GET['path'])){
         switch($_GET['path']){
                 case "home":
+                    $page['model']= new Models\UserModel();
                     $controller = new HomeController($page);
                     $controller->display();
+                    var_dump($controller->selectAll());
                 break;
                 case "test":
                     $controller = new HomeController($page);
