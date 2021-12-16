@@ -11,10 +11,9 @@
 
 -création de la BDD:
 -> Tables:
-    -> users : id - firstname - lastname - role - email - password 
-    -> users_articles : id_user - id_article
-    -> articles : id - title - content - author - created_at - status
-    -> comments : content - id_user
+    -> users : id_user(Clé étrangere) - firstname - lastname - role - email - password
+    -> articles : id_article - title (modèle) - brand - content - user_id(Clé étrangere) - created_at - status - image
+    -> comments : id_comment - content - user_id(Clé étrangere)
 
 -création du model User:
 ->méthods:
