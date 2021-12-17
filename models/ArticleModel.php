@@ -171,6 +171,7 @@ Class ArticleModel extends Database
     {
         //Prends tout les données entrée par l'utilisateur (ils seront en placeholder dans la view)
         try{
+            $updateId = $_POST["id_article"];
             $updateTitle = trim(ucfirst($_POST["title"]));
             $updateBrand = trim(ucfirst($_POST["brand"]));
             $updateContent = trim(ucfirst($_POST["content"]));
@@ -178,25 +179,20 @@ Class ArticleModel extends Database
             $updateImage = "";
 
             //prepare les données pour le bind value
-            $sth = $this->bdd->prepare('INSERT INTO
+            $sth = $this->bdd->prepare('UPDATE
                 articles
-                    (
-                       title,
-                       brand,
-                       content,
-                       status,
-                       image,
-                    )
-                VALUES
-                    (
-                        :title,
-                        :brand,
-                        :content,
-                        :status,
-                        :image
-                    )
+                SET
+                       title =:title,
+                       brand = :brand,
+                       content = :content,
+                       status = :status,
+                       image = :image,
+                WHERE 
+                        id_article = :id
+                    
             ');
             //bindValue contre injection SQL
+            $sth->bindValue('id',$updateId, PDO::PARAM_STR);
             $sth->bindValue('title',$updateTitle, PDO::PARAM_STR);
             $sth->bindValue('brand',$updateBrand, PDO::PARAM_STR);
             $sth->bindValue('content',$updateContent, PDO::PARAM_STR);
@@ -211,15 +207,18 @@ Class ArticleModel extends Database
         }
     }
 
-    public function deleteArticles(){
+    public function deleteArticles($id){
         
-        if(isset($_POST["articleDelete"]) && !empty($_POST["articleDelete"])){
-            
-            $sth=$this->bdd->prepare("DELETE FROM articles WHERE title= :title");
-            $sth->bindValue("title",$_POST["articleDelete"]);
+            $sth=$this->bdd->prepare("DELETE FROM articles WHERE id_article= :id");
+            $sth->bindValue("id",$id);
             $sth->execute();
-        }
         
+    }
+
+    public function selectAllArticles(){
+        $sth=$this->bdd->prepare("SELECT * FROM articles ORDER BY created_at DESC");
+        $sth->execute();
+        return $sth->fetchAll();
     }
 
 
