@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controllers;
 
     class UserConnexion extends Controller{
 
@@ -8,9 +8,8 @@ namespace Controller;
         
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $sql = "SELECT * FROM users WHERE email = $email";
-            $req = $this->bdd->query($sql);
-            $result = $req->fetch();
+            $result = $this->model->selectOneUser($email);
+            var_dump($result);
             if($email == $result['email'] && $password == $result['password']){
                 $_SESSION['connected'] = true;
                 $_SESSION['user'] = [
@@ -20,7 +19,6 @@ namespace Controller;
                                     "email"=>$result['email'],
                                     "role"=>$result['role']
                                 ];
-                session_start();
                 header('Location: ../index.php');
                 exit();
             }

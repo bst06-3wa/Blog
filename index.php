@@ -5,6 +5,7 @@
     use Controllers\Controller;
     use Controllers\HomeController;
     use Controllers\UserController;
+    use Controllers\UserConnexion;
     spl_autoload_register(function($class){
         $path = lcfirst(str_replace("\\","/",$class));
         require_once $path.".php";
@@ -32,11 +33,12 @@
                     }
                 break;
                 case "login":
-                    $controller = new UserController($page);
+                    $page['model'] = new Models\UserModel();
+                    $controller = new UserConnexion($page);
                     $controller->display();
                     if (isset($_POST["email"])) {
                          
-                        $controller->add();
+                        $controller->connexion();
                      }
                 break;
                 case "logout":
