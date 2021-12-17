@@ -6,16 +6,14 @@
         
         function add()
         {
-            // $POST = 'addTitle' =>       'C4',
-            // 'addBrand' =>       'Citroën',
-            // 'addContent' =>     trim(ucfirst($_POST['content'])),
-            // 'addUserId' =>      $_Session['id_user'],     
-            // 'addStatus' =>      0,      
-            // 'addImage' =>       '',
-
-            // $this->model->addArticle();
-
-            echo 'test';
+            $_POST = ['addTitle' =>       'C4',
+            'addBrand' =>       'Citroën',
+            'addContent' =>     'Lorem Ipsum',
+            'addUserId' =>      1,     
+            'addStatus' =>      0,      
+            'addImage' =>       'https://www.citroen.fr/content/dam/citroen/master/b2c/models/new-c4-e/visualizer/front-view/New%20E-C4%20and%20C4_0MP00NWP_Blanc%20Banquise_FR_1280_720.png',
+        ];
+            $this->model->addArticle();
         }
        
     }

@@ -13,7 +13,7 @@ Class ArticleModel extends Database
     //CODE DE MATTHEW
     
     //Ajouter un article à la bdd
-    private function addArticle()
+    public function addArticle()
     {
         $addArticle = [
             'addTitle' =>       '',
