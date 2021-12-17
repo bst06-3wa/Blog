@@ -59,7 +59,7 @@ Class ArticleModel extends Database
     //CODE DE MATTHEW
     
     //Ajouter un article à la bdd
-    private function addArticle()
+    public function addArticle()
     {
         $addArticle = [
             'addTitle' =>       '',
@@ -110,12 +110,9 @@ Class ArticleModel extends Database
                     
                     if(count($errors) == 0)
                     {
-                        //On upload l'image
-                        if(isset($_FILES['image']) && $_FILES['image']['name'] != '')
-                            $addArticle['addImage'] = uploadFile($_FILES['image'], $errors, UPLOADS_DIR);
                         
                         //On bind les values et on ajoute l'article dans la bdd
-                        $sth = $dbh->prepare('INSERT INTO `articles`
+                        $sth = $this->bdd->prepare('INSERT INTO `articles`
                         ( `title`,
                         `brand`,
                         `content`,
@@ -170,7 +167,7 @@ Class ArticleModel extends Database
     //CODE DE PAUL
 
     //Mettre a jour un article
-    private function updateArticle()
+    public function updateArticle()
     {
         //Prends tout les données entrée par l'utilisateur (ils seront en placeholder dans la view)
         try{
@@ -206,14 +203,23 @@ Class ArticleModel extends Database
             $sth->bindValue('status',$updateStatus, PDO::PARAM_STR);
             $sth->bindValue('image',$updateImage, PDO::PARAM_STR);
 
-            var_dump($sth);
-
             $sth->execute();
 
         }
         catch(PDOException $e){
             
         }
+    }
+
+    public function deleteArticles(){
+        
+        if(isset($_POST["articleDelete"]) && !empty($_POST["articleDelete"])){
+            
+            $sth=$this->bdd->prepare("DELETE FROM articles WHERE title= :title");
+            $sth->bindValue("title",$_POST["articleDelete"]);
+            $sth->execute();
+        }
+        
     }
 
 
