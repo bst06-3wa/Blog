@@ -9,8 +9,8 @@
             $this->bdd->query($sql);
         }
 
-        function updateArticle($id, $title, $content, $status, $image) {
-            $sql = "UPDATE `articles` SET `title` = $title, `content` = $content, /*`user_id` = '2',*/ `image` = $image WHERE `articles`.`id_article` = $id";
+        function updateArticle($title, $content, $user_id, $status, $image, $id) {
+            $sql = "UPDATE `articles` SET `title` = $title, `content` = $content, `user_id` = $user_id, `image` = $image WHERE `articles`.`id_article` = $id";
             $this->bdd->query($sql);
         }
 
