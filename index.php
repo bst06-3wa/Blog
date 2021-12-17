@@ -17,7 +17,7 @@
         switch($_GET['path']){
                 case "home":
                     $controller = new HomeController($page);
-                    $controller->add();
+                    $controller->delete();
                     $controller->select();
                     $controller->display();
 

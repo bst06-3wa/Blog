@@ -20,4 +20,11 @@
             var_dump($test);
         }
        
+        function update(){
+            $test = $this->model->updateArticle(9, "test", "test", "test", "test");
+        }
+
+        function delete(){
+            $test = $this->model->deleteArticle("test");
+        }
     }
