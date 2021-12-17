@@ -18,7 +18,7 @@
             $this->model->updateUser($firstname,$lastname,$email,$password,$id);
         }
 
-        function delete()
+        function delete($id)
         {
             $this->model->deleteUser($id);
         }

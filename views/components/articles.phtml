@@ -1,11 +1,11 @@
 <h3 class="title">Gestion des articles</h3>
 <div class="articles">
     <div class="container-form">
-        <form action="" method="POST" class="form-article">
+        <form action="/Blog/dashboard/articles" method="POST" class="form-article">
             <h4>Créer un article</h4>
             <div>
                 <label for="title">Titre</label>
-                <input type="text" name="tite">
+                <input type="text" name="title">
             </div>
             <div>
                 <label for="image">Lien vers l'image</label>
@@ -20,10 +20,11 @@
     </div>
     <div class="user">
     <h4 class="title"> Gérér un article</h4>
-       <ul>
-           <li><span class="title">Peugeot une marque qui se réinvente</span>  <a href="/Blog/dashboard/articles/id" class="icon"><i class="fas fa-trash-alt"></i></a></li>
-           <li><span class="name">Forza Motors de plus en plus performant</span> <a href="/Blog/dashboard/articles/id" class="icon"><i class="fas fa-trash-alt"></i></a></li>
     
+       <ul>
+           <?php foreach($_SESSION["articles"] as $article): ?>
+           <li><span class="name"><?= $article['title'] ?></span>  <a href="/Blog/dashboard/articles/<?= $article['id_article'] ?>" class="icon"><i class="fas fa-trash-alt"></i></a></li>
+            <?php endforeach; ?>
        </ul>
     </div>
 </div>

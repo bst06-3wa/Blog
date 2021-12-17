@@ -4,13 +4,13 @@
     require_once("config/config.php");
     use Controllers\Controller;
     use Controllers\HomeController;
+    use Controllers\ArticleController;
     use Controllers\UserController;
     use Controllers\UserConnexion;
     spl_autoload_register(function($class){
         $path = lcfirst(str_replace("\\","/",$class));
         require_once $path.".php";
     });
-
     $page = [
         "name"=> $_GET['path'],
         "model"=> ""
@@ -20,7 +20,10 @@
     if(isset($_GET['path'])){
         switch($_GET['path']){
                 case "home":
-                    $controller = new HomeController($page);
+                    $page['model'] = new Models\ArticleModel();
+                    $controller = new ArticleController($page);
+                    $articles = $controller->selectAll();
+                    $_SESSION["articles"] = $articles;
                     $controller->display();
                 break;
                 case "register":
@@ -30,6 +33,7 @@
                     if (isset($_POST["firstname"])) {
                          
                        $controller->add();
+                      
                     }
                 break;
                 case "login":
@@ -42,8 +46,11 @@
                      }
                 break;
                 case "logout":
-                    $controller = new HomeController($page);
-                    $controller->display();
+                    $page['model'] = new Models\ArticleModel();
+                    $controller = new ArticleController($page);
+                    $_SESSION["connected"] = false;
+                    $_SESSION["user"] = "";
+                   header("Location: /Blog/home");
                 break;
                 case "dashboard":
                     $_GET['param2'] = $_GET['param2'] != "" ? $_GET['param2'] : "profile";
@@ -60,6 +67,15 @@
                         break;
                         case "articles":
                             $page['model'] = new Models\ArticleModel();
+                            $controller = new ArticleController($page);
+                            if($_GET['param3'] != ""){
+                                $controller->delete($_GET['param3']);
+                                header("Location: /Blog/home");
+                            }
+                            if(isset($_POST['title'])){ 
+                                
+                                $controller->add();
+                            }
                         break;
                         case "users":
                             $page['model'] = new Models\UserModel();
@@ -67,13 +83,23 @@
                             $users = $controller->selectAll();
                             $_SESSION["users"] = $users;
                             $controller->display($users);
+                            if($_GET['param3'] != ""){
+                        
+                                $controller->delete($_GET['param3']);
+                            }
                         break;
                     }
                     
                 break;
                 case "article":
-                    $controller = new HomeController($page);
+                    
+                    $page['model'] = new Models\ArticleModel();
+                    $controller = new ArticleController($page);
+                    $article = $controller->selectOne($_GET["param2"]);
+                    $_SESSION["article"] = $article;
                     $controller->display();
+                break;
+                default:
                 break;
         }
     }else{

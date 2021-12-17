@@ -5,12 +5,14 @@
                 <a href="/Blog/dashboard">
                     <li>Profile</li>
                 </a>
-                <a href="/Blog/dashboard/articles">
-                    <li>Articles</li>
-                </a>
-                <a href="/Blog/dashboard/users">
-                    <li>Utilisateurs</li>
-                </a>
+                <?php if($_SESSION['user']["role"] == 1): ?>
+                    <a href="/Blog/dashboard/articles">
+                        <li>Articles</li>
+                    </a>
+                    <a href="/Blog/dashboard/users">
+                        <li>Utilisateurs</li>
+                    </a>
+                <?php endif; ?>
             </ul>
         </nav>
         <div class="section1 article-section">

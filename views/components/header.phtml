@@ -39,8 +39,13 @@
     <nav>
         <ul>
             <li><a href="/Blog/home">Home</a></li>
-            <li><a href="/Blog/register">S'inscrire</a></li>
-            <li><a href="/Blog/login">Se connecter</a></li>
+            <?php if($_SESSION['connected'] == false): ?>
+                <li><a href="/Blog/register">S'inscrire</a></li>
+                <li><a href="/Blog/login">Se connecter</a></li>
+            <?php else: ?>
+            <li><a href="/Blog/dashboard">dashboard</a></li>
+            <li><a href="/Blog/logout">Déconnection</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
 </header>

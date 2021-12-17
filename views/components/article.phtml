@@ -3,10 +3,11 @@
         <div class="section1 article-section">
             <div class="articles-content">
                 <div class="article ">
-                    <img src="https://images.caradisiac.com/images/5/6/2/3/95623/S1-Voici-la-Peugeot-208-GTI-30th-au-comportement-aiguise-325245.jpg" alt="image article">
-                    <p class="title-article">Peugeot Une marque qui ne cesse de se réiventer</p>
-                    <p class="short-description">Lorem ipsum, dolor sit amet consectetur adipisicing edivt. Laborum, blanditiis commodi distinctio sed saepe qui adipisci maxime, in asperiores debitis quae esse neque quidem eos ab dolorem, earum quibusdam facere?</p>
-                    <p >publié le: <span class="date">22 Decembre 2016</span> </p>
+                    
+                    <img src="<?= $_SESSION["article"]['image'] ?>" alt="image article">
+                    <p class="title-article"><?= $_SESSION["article"]['title'] ?></p>
+                    <p class="short-description"><?= $_SESSION["article"]['content'] ?></p>
+                    <p >publié le: <span class="date"><?= $_SESSION["article"]['created_at'] ?></span> </p>
                     <p>Autheur: <span class="author">Joey Star</span> </p>
                 </div>     
             </div>

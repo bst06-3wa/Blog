@@ -9,8 +9,8 @@
   
         function add() 
         {
-            
-            $this->model->addArticle($_POST['title'],$_POST['content'],$_POST['user_id'],$_POST['image']);
+            $id_user = $_SESSION["user"]['id_user'];
+            $this->model->addArticle($_POST['title'],$_POST['content'],$id_user,$_POST['image']);
         }
 
         function update() 
@@ -18,14 +18,14 @@
             $this->model->updateArticle($_POST['title'],$_POST['content'],$_POST['user_id'],$_POST['status'],$_POST['image'],$_POST['id']);
         }
 
-        function delete()
+        function delete($id)
         {
             $this->model->deleteArticle($id);
         }
 
-        function selectOne()
+        function selectOne($id)
         {
-            $result = $this-model-selectOne($id);
+            $result = $this->model->selectOne($id);
             return $result;
         }
 
