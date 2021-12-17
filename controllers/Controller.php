@@ -19,10 +19,11 @@
             }
 
         }
-        public function display(array $data = []):bool
+        public function display(array $array = []):bool
         {
+            $data = $array;
             $data['view'] = $this->view;
-            $datas = !empty($data) ? $data : [];
+            // var_dump($data);
             require_once VIEW_DIR . "/page.phtml";
             return true;
         }

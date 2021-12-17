@@ -1,19 +1,16 @@
 <?php
 
-    namespace Controller;
+    namespace Controllers;
     
     class UserController extends Controller
     {
         
-    private $firstname = trim($_POST['firstname']);
-    private $lastname  = trim($_POST['lastname']);
-    private $email     = trim($_POST['email']);
-    private $password  = trim($_POST['password']);
-    private $id = $_SESSION['id_user']; 
         
+  
         function add() 
         {
-            $this->model->insertUser($firstname,$lastname,$email,$password)
+            
+            $this->model->insertUser($_POST['firstname'],$_POST['lastname'],$_POST['email'],$_POST['password']);
         }
 
         function update() 
@@ -34,7 +31,7 @@
 
         function selectAll()
         {
-            $result = $this-model-selectAllUsers();
+            $result = $this->model->selectAllUsers();
             return $result;
         }
 

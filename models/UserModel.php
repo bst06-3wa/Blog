@@ -4,6 +4,10 @@
     class UserModel extends Database
     {
         function insertUser($firstname, $lastname, $email, $password){
+            var_dump($firstname);
+            var_dump($lastname);
+            var_dump($email);
+            var_dump($password);
             $sql = "INSERT INTO `users`(`firstname`, `lastname`, `email`, `password`) VALUES ('$firstname','$lastname', '$email','$password')";
             $this->bdd->query($sql);
         }
@@ -28,7 +32,7 @@
         function selectAllUsers() {
             $sql = "SELECT * FROM users";
             $req = $this->bdd->query($sql);
-            $result = $req->fetch();
+            $result = $req->fetchAll(\PDO::FETCH_ASSOC);
             return $result;            
         }
         
