@@ -18,6 +18,7 @@
                 case "home":
                     $controller = new HomeController($page);
                     $controller->add();
+                    $controller->select();
                     $controller->display();
 
                 break;
