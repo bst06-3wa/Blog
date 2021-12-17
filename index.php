@@ -9,7 +9,7 @@
 
     $page = [
         "name"=> $_GET['path'],
-        "model"=> ""
+        "model"=> new Models\ArticleModel()
     ];
 
 
@@ -17,7 +17,9 @@
         switch($_GET['path']){
                 case "home":
                     $controller = new HomeController($page);
+                    $controller->add();
                     $controller->display();
+
                 break;
                 case "test":
                     $controller = new HomeController($page);
