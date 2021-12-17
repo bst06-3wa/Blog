@@ -18,14 +18,14 @@
             $this->bdd->query($sql);
         }
 
-        function selectOne($id) {
+        function selectOneUser($id) {
             $sql = "SELECT `id_user`, `firstname`, `lastname`, `role`, `email`, `password` FROM `users` WHERE `id_user` = $id";
             $req = $this->bdd->query($sql);
             $result = $req->fetch();
             return $result;
         }
 
-        function selectAll() {
+        function selectAllUsers() {
             $sql = "SELECT * FROM users";
             $req = $this->bdd->query($sql);
             $result = $req->fetch();
