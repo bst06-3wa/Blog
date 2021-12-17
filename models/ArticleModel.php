@@ -8,53 +8,53 @@ Class ArticleModel extends Database
     protected $errors = [];
     protected $valids = [];
 
+    // const BASE_DIR = realpath(dirname(__FILE__) . "/../");
 
+    // const UPLOADS_DIR = BASE_DIR.'/uploads/';
 
-    const UPLOADS_DIR = BASE_DIR.'/uploads/';
+    // const FILE_EXT_IMG = ['jpg','jpeg','gif','png'];
 
-    const FILE_EXT_IMG = ['jpg','jpeg','gif','png'];
+    // /** Déplace un fichier transmis dans un répertoire du serveur
+    //  * @param $file contenu du tableau $_FILES à l'index du fichier à uploader
+    //  * @param $errors la variable devant contenir les erreurs. Passage par référence ;)
+    //  * @param $folder chemin absolue ou relatif où le fichier sera déplacé. Par default UPLOADS_DIR
+    //  * @param $fileExtensions par defaut vaut FILE_EXT_IMG. un tableau d'extensions valident
+    //  * @return array un tableau contenant les erreurs ou vide
+    //  */
+    // function uploadFile(array $file, array &$errors, string $folder = UPLOADS_DIR, array $fileExtensions = FILE_EXT_IMG)
+    // {
+    //     $filename = '';
 
-    /** Déplace un fichier transmis dans un répertoire du serveur
-     * @param $file contenu du tableau $_FILES à l'index du fichier à uploader
-     * @param $errors la variable devant contenir les erreurs. Passage par référence ;)
-     * @param $folder chemin absolue ou relatif où le fichier sera déplacé. Par default UPLOADS_DIR
-     * @param $fileExtensions par defaut vaut FILE_EXT_IMG. un tableau d'extensions valident
-     * @return array un tableau contenant les erreurs ou vide
-     */
-    function uploadFile(array $file, array &$errors, string $folder = UPLOADS_DIR, array $fileExtensions = FILE_EXT_IMG)
-    {
-        $filename = '';
+    //     if ($file["error"] === UPLOAD_ERR_OK) {
+    //         $tmpName = $file["tmp_name"];
 
-        if ($file["error"] === UPLOAD_ERR_OK) {
-            $tmpName = $file["tmp_name"];
+    //         // On récupère l'extension du fichier pour vérifier si elle est dans  $fileExtensions
+    //         $tmpNameArray = explode(".", $file["name"]);
+    //         $tmpExt = end($tmpNameArray);
+    //         if(in_array($tmpExt,$fileExtensions))
+    //         {
+    //             // basename() peut empêcher les attaques de système de fichiers en supprimant les éventuels répertoire dans le nom
+    //             // la validation/assainissement supplémentaire du nom de fichier peut être appropriée
+    //             // On donne un nouveau nom au fichier
+    //             $filename = uniqid().'-'.basename($file["name"]);
+    //             if(!move_uploaded_file($tmpName, $folder.$filename))
+    //             {
+    //                 $errors[] = 'Le fichier n\'a pas été enregistré correctement';
+    //             }
+    //         }
+    //         else
+    //             $errors[] = 'Ce type de fichier n\'est pas autorisé !';
+    //     }
+    //     else if($file["error"] == UPLOAD_ERR_INI_SIZE || $file["error"] == UPLOAD_ERR_FORM_SIZE) {
+    //         //fichier trop volumineux
+    //         $errors[] = 'Le fichier est trop volumineux';
+    //     }
+    //     else {
+    //         $errors[] = 'Une erreur a eu lieu au moment de l\'upload';
+    //     }
 
-            // On récupère l'extension du fichier pour vérifier si elle est dans  $fileExtensions
-            $tmpNameArray = explode(".", $file["name"]);
-            $tmpExt = end($tmpNameArray);
-            if(in_array($tmpExt,$fileExtensions))
-            {
-                // basename() peut empêcher les attaques de système de fichiers en supprimant les éventuels répertoire dans le nom
-                // la validation/assainissement supplémentaire du nom de fichier peut être appropriée
-                // On donne un nouveau nom au fichier
-                $filename = uniqid().'-'.basename($file["name"]);
-                if(!move_uploaded_file($tmpName, $folder.$filename))
-                {
-                    $errors[] = 'Le fichier n\'a pas été enregistré correctement';
-                }
-            }
-            else
-                $errors[] = 'Ce type de fichier n\'est pas autorisé !';
-        }
-        else if($file["error"] == UPLOAD_ERR_INI_SIZE || $file["error"] == UPLOAD_ERR_FORM_SIZE) {
-            //fichier trop volumineux
-            $errors[] = 'Le fichier est trop volumineux';
-        }
-        else {
-            $errors[] = 'Une erreur a eu lieu au moment de l\'upload';
-        }
-
-        return $filename;
-    }
+    //     return $filename;
+    // }
 
     //CODE DE MATTHEW
     
@@ -172,8 +172,7 @@ Class ArticleModel extends Database
     //Mettre a jour un article
     private function updateArticle()
     {
-        if($_SESSION['role'])
-        $updateArray = [];
+        //Prends tout les données entrée par l'utilisateur (ils seront en placeholder dans la view)
         try{
             $updateTitle = trim(ucfirst($_POST["title"]));
             $updateBrand = trim(ucfirst($_POST["brand"]));
@@ -181,7 +180,7 @@ Class ArticleModel extends Database
             $updateStatus = $_POST["status"];
             $updateImage = "";
 
-            
+            //prepare les données pour le bind value
             $sth = $this->bdd->prepare('INSERT INTO
                 articles
                     (
@@ -200,7 +199,7 @@ Class ArticleModel extends Database
                         :image
                     )
             ');
-
+            //bindValue contre injection SQL
             $sth->bindValue('title',$updateTitle, PDO::PARAM_STR);
             $sth->bindValue('brand',$updateBrand, PDO::PARAM_STR);
             $sth->bindValue('content',$updateContent, PDO::PARAM_STR);
