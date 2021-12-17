@@ -31,7 +31,12 @@
                     $controller = new HomeController($page);
                     $controller->display();
                 break;
-                case "profile":
+                case "dashboard":
+                    $_GET['param2'] = $_GET['param2'] != "" ? $_GET['param2'] : "profile";
+                    $controller = new HomeController($page);
+                    $controller->display();
+                break;
+                case "article":
                     $controller = new HomeController($page);
                     $controller->display();
                 break;

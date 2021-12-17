@@ -1,0 +1,24 @@
+<div class="dashboard">
+        <h1 class="title">Tableau de bord</h1>
+        <nav>
+            <ul>
+                <a href="/Blog/dashboard">
+                    <li>Profile</li>
+                </a>
+                <a href="/Blog/dashboard/articles">
+                    <li>Articles</li>
+                </a>
+                <a href="/Blog/dashboard/users">
+                    <li>Utilisateurs</li>
+                </a>
+            </ul>
+        </nav>
+        <div class="section1 article-section">
+            <div class="articles-content">
+                <div class="article ">
+                    <?php require_once VIEW_DIR."/components/".$_GET["param2"].".phtml"; ?>
+                </div>     
+            </div>
+           
+        </div>
+</div>

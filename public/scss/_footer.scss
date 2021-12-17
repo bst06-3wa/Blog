@@ -1,6 +1,13 @@
 /* ************** FOOTER ************* */
 
 footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
     background-color: $bgHeaderFooter;
     text-align: center;
+    .heart{
+        color: rgb(218, 35, 202);
+    }
 }

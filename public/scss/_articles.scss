@@ -1,0 +1,28 @@
+.articles{
+    display: flex;
+    justify-content: space-around;
+    .container-form{
+        flex-basis: 40%;
+        .form-article{
+            margin: 1rem;
+            max-width: 50%;
+            border:1px solid red;
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+    .user{
+        border: 1px solid black;
+        padding: 1rem;
+        h4{
+            padding: 1.5rem;
+        }
+        ul{
+            padding: 1rem 0;
+            li{
+                margin: 1rem;
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
