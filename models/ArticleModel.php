@@ -5,7 +5,6 @@
     {
         function addArticle($title, $content, $user_id, $image){
             $sql = "INSERT INTO `articles` (`id_article`, `title`, `content`, `user_id`, `created_at`, `status`, `image`) VALUES (NULL, $title, $content, $user_id, CURRENT_TIMESTAMP, '0', $image);";
-            var_dump($sql);
             $this->bdd->query($sql);
         }
 
